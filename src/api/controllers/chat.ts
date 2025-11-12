@@ -509,7 +509,6 @@ async function receiveStream(stream: any, model: string = DEFAULT_MODEL): Promis
           if (role != "assistant" && !_.isString(content)) return str;
           return str + content;
         }, "");
-<<<<<<< HEAD
         const exceptCharIndex = text.indexOf("�");
         let chunk = "";
         // 只有当text比当前内容长时才提取增量
