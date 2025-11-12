@@ -496,6 +496,7 @@ async function receiveStream(stream: any, model: string = DEFAULT_MODEL): Promis
       try {
         if (event.type !== "event") return;
         if (event.data == "[DONE]") return;
+        if (event.data === "[heartbeat]") return;
         // 解析JSON
         const result = _.attempt(() => JSON.parse(event.data));
         if (_.isError(result))
@@ -586,6 +587,7 @@ function createTransStream(stream: any, model: string = DEFAULT_MODEL, endCallba
     try {
       if (event.type !== "event") return;
       if (event.data == "[DONE]") return;
+      if (event.data === "[heartbeat]") return;
       // 解析JSON
       const result = _.attempt(() => JSON.parse(event.data));
       if (_.isError(result))
@@ -688,6 +690,7 @@ async function receiveImages(
       try {
         if (event.type !== "event") return;
         if (event.data == "[DONE]") return;
+        if (event.data === "[heartbeat]") return;
         // 解析JSON
         const result = _.attempt(() => JSON.parse(event.data));
         if (_.isError(result))
