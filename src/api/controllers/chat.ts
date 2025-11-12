@@ -515,7 +515,6 @@ async function receiveStream(stream: any, model: string = DEFAULT_MODEL): Promis
         if (text.length > data.choices[0].message.content.length) {
           chunk = text.substring(data.choices[0].message.content.length);
         }
-        }
         if (chunk && result.contentType == "text2image") {
           chunk = chunk.replace(
             /https?:\/\/[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=\,]*)/gi,
